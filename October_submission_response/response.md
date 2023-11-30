@@ -7,14 +7,14 @@ We agree that [36] is strongly related, however, we believe that our work goes s
 
 ### Limited evaluation (R1, R2, R3)
 We agree with the reviewers that the evaluation should be broader and based on diverse (and modern) hardware and we have already started working to rectify this:
-- We are rerunning the evaluation on a modern Intel, as well as AMD, CPU to assess impact and robustness on different platforms (R1.D4, R1.D5, R3.O6, {points on robustness})
+- We are rerunning the evaluation on a modern Intel, as well as AMD, CPU to assess impact and robustness on different platforms (R1.D4, R1.D5, R3.O6).
 - We are currently integrating our approach into an open-source system which will allow us to evaluate more and complexer queries (R1.O2, R1.D3, R2.O1).
 
 ### Lack of discussion of how well approach works in practice (R1, R2, R3)
-The reviewers highlighted a lack of discussion of the applicability of our approach to a wider range of systems. We acknowledge this and will address this through the following measures:
+The reviewers highlighted a lack of discussion of the applicability of our approach to a wider range of systems. We acknowledge this and will address this through the following:
 - We will explain the requirements and steps for integrating our approach with other systems, for example, the API, performance counter access and calibration process (R1.O3, R3.O1).
 - We will include a more detailed discussion of the automated calibration (setting of heuristics) that we use (R1.D2, R2.O3).
-- Our system requires access to the PMU which, with the necessary permissions, should also be available on containerized setups (https://doi.org/10.1145/1952682.1952686). Additionally, since performance counters exist on a per-core basis the required number of counters will always be available. We will make these points clear in our paper (R3.O2).
+- Our system requires access to the PMU which, with the necessary permissions, should also be available on containerized setups (https://doi.org/10.1145/1952682.1952686). Additionally, since performance counters exist on a per-core basis the required number of counters will always be available. We will make these points clear (R3.O2).
 - We will justify why our heuristics do not require dynamic reconfiguration: per-core events such as branch mispredictions or sTLB store misses are counted per-core and therefore are isolated from other processes or concurrent operators. In addition, where our operators use shared resources they are naturally adaptive to contention of this resource (such as last-level cache usage) (R3.O3, R3.O7).
 - As we integrate our approach into an open-source system we have not yet identified any factors that prevent a full integration with our approach.
 - We will discuss our approach with respect to ARM platforms (R1.D6).
